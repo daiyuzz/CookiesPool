@@ -67,12 +67,13 @@ class WeiboCookies():
         except TimeoutException:
             print('未出现验证码')
             self.open()
-        time.sleep(2)
-        location = img.location
-        size = img.size
-        top, bottom, left, right = location['y'], location['y'] + size['height'], location['x'], location['x'] + size[
-            'width']
-        return (top, bottom, left, right)
+        else:
+            time.sleep(2)
+            location = img.location
+            size = img.size
+            top, bottom, left, right = location['y'], location['y'] + size['height'], location['x'], location['x'] + size[
+                'width']
+            return (top, bottom, left, right)
     
     def get_screenshot(self):
         """
